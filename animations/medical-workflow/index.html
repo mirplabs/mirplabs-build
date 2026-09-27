@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRPLABS · From image to simulation</title>
+  <link rel="stylesheet" href="workflow.css">
+  <script src="workflow.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <p class="eyebrow">MIRPLABS / COMPUTATIONAL MEDICAL IMAGING</p>
+      <h1>From image to <span>simulation.</span></h1>
+      <p class="description">Connecting medical images, anatomical geometry, and computational models.</p>
+    </header>
+    <section class="player" aria-label="Animated research workflow">
+      <div class="toolbar">
+        <div class="live-label"><span class="live-dot"></span><span id="playback-label">Workflow in motion</span></div>
+        <div class="controls">
+          <button id="play" type="button">Pause</button>
+          <button id="restart" type="button">Restart</button>
+          <label>Speed <select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+        </div>
+      </div>
+      <div class="flow" id="flow">
+        <svg id="connections" aria-hidden="true"><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a3b4d5"/></marker></defs><g id="paths"></g></svg>
+        <ol id="stages" aria-label="Workflow stages; select a stage to inspect it"></ol>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
+      <section class="stage-detail" aria-label="Current stage">
+        <span id="step-number">01 / 09</span>
+        <div><h2 id="detail-title">MRI</h2><p id="detail-text">Acquire a volume of image slices as the starting point for the model.</p></div>
+        <span class="output" id="output">OUTPUT / IMAGE VOLUME</span>
+      </section>
+    </section>
+    <footer><span>Image → geometry → physics → insight</span><span>Conceptual animation · illustrative data</span></footer>
+    <noscript>Enable JavaScript to view the animated workflow: MRI → image processing / segmentation → anatomical regions → computational mesh → material model → FEM → numerical solver → biomechanical simulation → visualization / analysis.</noscript>
+  </main>
+</body>
+</html>

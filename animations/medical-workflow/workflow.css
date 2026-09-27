@@ -1,0 +1,58 @@
+:root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #171717; background: #fafafa; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1160px; margin: 0 auto; padding: 44px 28px 24px; }
+.eyebrow { color: #1e3a8a; font-size: 11px; font-weight: 750; letter-spacing: .16em; }
+h1 { font-size: clamp(30px, 4.4vw, 50px); letter-spacing: -.055em; line-height: 1.12; margin: 16px 0; }
+h1 span { color: #1e3a8a; }
+.description { color: #626262; font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+.player { background: white; border: 1px solid #dedede; border-radius: 20px; box-shadow: 0 16px 60px #00000005; overflow: hidden; }
+.toolbar { padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #ededed; }
+.live-label { display: flex; align-items: center; gap: 9px; color: #525252; font-size: 12px; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #1e3a8a; box-shadow: 0 0 0 4px #1e3a8a0d; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+button, select { font: inherit; }
+.controls button, select { border: 1px solid #ddd; border-radius: 7px; background: white; color: #303030; padding: 7px 12px; font-size: 12px; cursor: pointer; }
+.controls #play { background: #1e3a8a; border-color: #1e3a8a; color: white; min-width: 70px; }
+.controls label { font-size: 12px; color: #626262; margin-left: 8px; }
+.controls select { margin-left: 4px; }
+button:focus-visible, select:focus-visible { outline: 3px solid #1e3a8a; outline-offset: 4px; }
+.flow { position: relative; padding: 26px; background-image: radial-gradient(#e5e5e5 .7px, transparent .7px); background-size: 16px 16px; }
+#connections { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.connector { fill: none; stroke: #c7d2e5; stroke-width: 1.5; marker-end: url(#arrow); }
+.packet { fill: #1e3a8a; }
+#stages { position: relative; padding: 0; margin: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; }
+.stage { min-width: 0; }
+.stage-button { width: 100%; height: 100%; display: block; text-align: left; cursor: pointer; border: 1px solid #ddd; border-radius: 12px; padding: 14px 16px 10px; color: #171717; background: #fff; }
+.stage-button:hover { border-color: #879bc3; }
+.stage-button[aria-current="step"] { border-color: #1e3a8a; box-shadow: 0 0 0 3px #1e3a8a0c, 0 5px 18px #1e3a8a0a; }
+.stage-heading { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.stage-number { font-size: 10px; color: #737373; font-variant-numeric: tabular-nums; letter-spacing: .1em; }
+.stage-state { font-size: 9px; text-transform: uppercase; letter-spacing: .12em; color: #737373; }
+[aria-current="step"] .stage-state { color: #1e3a8a; font-weight: 700; }
+.stage-title { margin: 7px 0 0; display: block; font-size: 13px; font-weight: 650; line-height: 1.4; min-height: 36px; }
+canvas { display: block; width: 100%; height: 94px; }
+.progress-track { height: 3px; background: #eee; }
+#progress { height: 100%; width: 0; background: #1e3a8a; }
+.stage-detail { display: flex; align-items: flex-start; gap: 18px; padding: 22px 26px; min-height: 110px; }
+#step-number { font-size: 11px; white-space: nowrap; color: #1e3a8a; padding-top: 5px; font-variant-numeric: tabular-nums; }
+.stage-detail h2 { font-size: 16px; margin: 0 0 7px; }
+.stage-detail p { font-size: 13px; color: #626262; line-height: 1.65; margin: 0; max-width: 510px; }
+.output { font-size: 9px; letter-spacing: .09em; color: #1e3a8a; background: #f3f5fa; padding: 8px 10px; border-radius: 5px; margin-left: auto; white-space: nowrap; }
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 18px 0; font-size: 10px; color: #737373; letter-spacing: .03em; }
+@media (max-width: 700px) {
+  main { padding: 28px 16px 16px; }
+  .toolbar { flex-wrap: wrap; padding: 16px; }
+  .flow { padding: 20px; }
+  #stages { grid-template-columns: 1fr; gap: 30px; }
+  .stage-title { min-height: 0; }
+  canvas { height: 110px; }
+  .stage-detail { flex-wrap: wrap; padding: 20px; }
+  .stage-detail > div { flex: 1; min-width: 180px; }
+  .output { margin-left: 0; }
+}
+
+/* Embedded mode reuses the host page heading and scroll container. */
+.embedded body { overflow: hidden; }
+.embedded main { max-width: none; margin: 0; padding: 0; }
+.embedded .intro { display: none; }
